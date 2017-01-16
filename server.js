@@ -89,7 +89,8 @@ app.post('/upload', function(req, res) {
         }
     });
 });
-app.listen(8080);
+var port = process.env.PORT || 8080;
+app.listen(port);
 
 app.get("/session/:number", function (req, res) {
   var number = req.params.number;
