@@ -1,0 +1,26 @@
+{
+  "name": "heba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-busboy": "0.0.2",
+    "express": "^4.14.0",
+    "express-fileupload": "0.0.6",
+    "googleapis": "^16.1.0",
+    "iamporter": "^0.8.14",
+    "mkdirp": "^0.5.1",
+    "multer": "^1.2.1",
+    "nodejs-fs-utils": "^1.0.26",
+    "okrabyte": "^0.1.1",
+    "sse": "0.0.6",
+    "sse-node": "^1.0.2",
+    "tesseract.js": "^1.0.10",
+    "underscore": "^1.8.3"
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head></head>
+<html>
+
+    <body ng-app="nawwar" ng-controller="signup">
+        <link rel="stylesheet" href="index.css">
+        <div class="main">
+            <div class="row">
+                <a href="/">Home</a>
+            </div>
+
+            <form ng-submit="submit()" id="signupForm">
+                <div class="column">
+                  <div class="row">
+                      <div class="column">
+                        <h3>Username</h3>
+                        <input id="username" type="text" name="Username" value="" ng-model="username" required/>
+
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="column">
+                        <h3>Password</h3>
+
+                        <input id="password" type="password" name="Password" value="" ng-model="password" required/>
+
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="column">
+                        <h3>First Name</h3>
+
+                        <input id="fname" type="text" name="fname" ng-model="fname" required/>
+
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="column">
+                        <h3>Last Name</h3>
+
+                        <input id="lname" type="text" name="lname" ng-model="lname" required/>
+
+                      </div>
+                  </div>
+                    <input id="submit" type='submit' value='Submit'/>
+                </div>
+            </form>
+            <script src="bower_components/angular/angular.min.js"></script>
+
+            <script>
+                angular.module("nawwar", []);
+                angular.module("nawwar").controller('signup', function($scope, $http) {
+                    $scope.submit = function() {
+                        $http({
+                            url: "/signup",
+                            method: "POST",
+                            data: {
+                                username: $scope.username,
+                                password: $scope.password,
+                                fname: $scope.fname,
+                                lname: $scope.lname
+                            }
+                        }).then(function(data) {
+                            window.alert(data.data)
+                            window.localStorage.nawwar = JSON.stringify({username: $scope.username, password: $scope.password});
+                        }).catch(function(err) {
+                            window.alert(err.data)
+                        })
+                    }
+                })
+            </script>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="index.css">
+    <body>
+        <div class="main">
+
+            <div class="row">
+                <a href="/signup.html">Signup</a>
+                <a href="/login.html">Login</a>
+            </div>
+            <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+                <div class="column">
+
+                    <div class="row">
+                        <div class="column">
+
+                            <h3>Session</h3>
+                            <select name="session" required>
+                                <option value="1">Session 1</option>
+                                <option value="2">Session 2</option>
+                                <option value="3">Session 3</option>
+                                <option value="4">Session 4</option>
+                                <option value="5">Session 5</option>
+                                <option value="6">Session 6</option>
+                                <option value="7">Session 7</option>
+                                <option value="8">Session 8</option>
+                                <option value="9">Session 9</option>
+                                <option value="10">Session 10</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Username</h3>
+
+                            <input id="user" type="text" name="username" value="" required/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Password</h3>
+
+                            <input id="pass" type="password" name="password" value="" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>File</h3>
+
+                            <input type="file" name="sampleFile" required/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type='submit' value='Upload!'/>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+    </body>
+    <script type="text/javascript">
+        document.getElementById('user').value = JSON.parse(window.localStorage.nawwar).username || "";
+        document.getElementById('pass').value = JSON.parse(window.localStorage.nawwar).password || "";
+    </script>
+</html>

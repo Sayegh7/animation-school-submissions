@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head></head>
+<html>
+
+    <body ng-app="nawwar" ng-controller="sessions">
+        <link rel="stylesheet" href="index.css">
+        <div class="main">
+            <div class="row">
+
+                <a href="/">Home</a>
+            </div>
+
+            <div class="column">
+                <div class="row">
+                    <div class="column">
+                        <h3>Choose a session</h3>
+                        <select name="session" ng-model="session" required>
+                            <option value="1">Session 1</option>
+                            <option value="2">Session 2</option>
+                            <option value="3">Session 3</option>
+                            <option value="4">Session 4</option>
+                            <option value="5">Session 5</option>
+                            <option value="6">Session 6</option>
+                            <option value="7">Session 7</option>
+                            <option value="8">Session 8</option>
+                            <option value="9">Session 9</option>
+                            <option value="10">Session 10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+
+                <button ng-click="submit()" type="button" name="button">Choose</button>
+              </div>
+            </div>
+
+            <div ng-repeat="file in files" class="">
+                <a class="links" ng-href="{{file}}">{{file}}</a>
+            </div>
+            <script src="bower_components/angular/angular.min.js"></script>
+
+            <script>
+                angular.module("nawwar", []);
+                angular.module("nawwar").controller('sessions', function($scope, $http) {
+                    $scope.submit = function() {
+                        console.log($scope.session);
+                        $http({
+                            url: "/session/" + $scope.session,
+                            method: "GET"
+                        }).then(function(data) {
+                          console.log(data);
+                            $scope.files = data.data;
+                        }).catch(function(err) {
+                            window.alert(err.data)
+                        })
+                    }
+                })
+            </script>
+
+        </div>
+    </body>
+
+</html>
