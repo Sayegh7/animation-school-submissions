@@ -56,8 +56,10 @@ app.post('/upload', function(req, res) {
     var password = req.body.password;
 
     var authenticated = false;
+    var details;
     for (var i = 0; i < users.length; i++) {
       if(users[i].username === username && users[i].password === password){
+        details = users[i];
         authenticated = true;
         break;
       }
@@ -81,7 +83,7 @@ app.post('/upload', function(req, res) {
       console.log("Created path", session);
     });
 
-    sampleFile.mv("public/"+session + "/" + username + fileExtension, function(err) {
+    sampleFile.mv("public/"+session + "/" + details.fname+details.lname + fileExtension, function(err) {
         if (err) {
             res.status(500).send(err);
         } else {
